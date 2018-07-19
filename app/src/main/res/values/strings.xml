@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TourGuide Rome</string>
+    <string name="category_restaurants">Restaurants</string>
+    <string name="category_hotels">Hotels</string>
+    <string name="category_monuments">Monuments</string>
+    <string name="category_shops">Shops</string>
+</resources>
