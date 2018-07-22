@@ -18,14 +18,12 @@ import java.util.List;
  * Created by vanessawanner on 18.07.18.
  */
 
-public class LocationAdapter extends ArrayAdapter<Location>{
-
+public class LocationAdapter extends ArrayAdapter<Location> {
 
 
     public LocationAdapter(Activity context, List<Location> Locations) {
         super(context, 0, Locations);
     }
-
 
     @NonNull
     @Override
@@ -36,33 +34,26 @@ public class LocationAdapter extends ArrayAdapter<Location>{
 
         }
 
-
         Location currentLocation = getItem(position);
-
 
         TextView NameTextView = (TextView) listItemView.findViewById(R.id.TextView1);
 
         NameTextView.setText(currentLocation.getLocationName());
 
-
-        TextView AddressTextView = (TextView)  listItemView.findViewById(R.id.TextView2);
-
+        TextView AddressTextView = (TextView) listItemView.findViewById(R.id.TextView2);
 
         AddressTextView.setText(currentLocation.getLocationAddress());
 
         ImageView drawableView = (ImageView) listItemView.findViewById(R.id.picture);
 
-        if(currentLocation.hasImage()) {
+        if (currentLocation.hasImage()) {
             drawableView.setImageResource(currentLocation.getImageResourceID());
 
-        }
-        else {
+        } else {
             drawableView.setVisibility(View.GONE);
 
         }
 
-
         return listItemView;
-
     }
 }
