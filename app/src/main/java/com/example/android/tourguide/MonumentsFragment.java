@@ -1,6 +1,7 @@
 package com.example.android.tourguide;
 
 import android.app.Fragment;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,15 +15,13 @@ import java.util.List;
  * Created by vanessawanner on 18.07.18.
  */
 
-public class MonumentsFragment extends android.support.v4.app.Fragment{
+public class MonumentsFragment extends android.support.v4.app.Fragment {
 
-    public static final String ARG_PAGE = "ARG_PAGE";
-
+    public static final String ARG_PAGE = tourguide.getAppContext().getString(R.string.argname);
 
     public MonumentsFragment() {
 
     }
-
 
     public static MonumentsFragment newInstance(int page) {
         Bundle args = new Bundle();
@@ -38,21 +37,16 @@ public class MonumentsFragment extends android.support.v4.app.Fragment{
 
         View rootView = inflater.inflate(R.layout.location_list, container, false);
 
-
         // Create a list of locations
         List<Location> locations = new ArrayList<Location>();
-        locations.add(new Location("Colosseo", "Villa Balestra 2", R.drawable.colosseo));
-        locations.add(new Location("Tempio del Divo Claudio", "Via francesco 60", R.drawable.tempiodeldivoclaudio));
-        locations.add(new Location("Sistine Chapel", "Via Luigi 1", R.drawable.sixtinischekapelle));
-        locations.add(new Location("Old Town", "Via Mario 2", R.drawable.old_town));
-
-
+        locations.add(new Location(getString(R.string.mon1), getString(R.string.mon1ad), R.drawable.colosseo));
+        locations.add(new Location(getString(R.string.mon2), getString(R.string.mon2ad), R.drawable.tempiodeldivoclaudio));
+        locations.add(new Location(getString(R.string.mon3), getString(R.string.mon3ad), R.drawable.sixtinischekapelle));
+        locations.add(new Location(getString(R.string.mon4), getString(R.string.mon4ad), R.drawable.old_town));
 
         LocationAdapter adapter = new LocationAdapter(getActivity(), locations);
 
-
         ListView listView = (ListView) rootView.findViewById(R.id.list);
-
 
         listView.setAdapter(adapter);
 
@@ -60,5 +54,4 @@ public class MonumentsFragment extends android.support.v4.app.Fragment{
     }
 
 }
-
 

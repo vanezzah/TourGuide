@@ -29,31 +29,28 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         if (position == 0) {
-            return new RestaurantsFragment();}
-        else if (position == 1) {
-            return new HotelsFragment();}
-        else if (position == 2) {
-            return new MonumentsFragment();}
-        else {
-            return new ShopsFragment(); }
-
-
+            return new RestaurantsFragment();
+        } else if (position == 1) {
+            return new HotelsFragment();
+        } else if (position == 2) {
+            return new MonumentsFragment();
+        } else {
+            return new ShopsFragment();
+        }
     }
 
-
     // Set Titles for Tabs
-
     @Override
     public CharSequence getPageTitle(int position) {
         // Generate title based on item position
         if (position == 0) {
-            return context.getString(R.string.category_restaurants);}
-        else if (position == 1) {
-            return context.getString(R.string.category_hotels);}
-        else if (position == 2) {
-            return context.getString(R.string.category_monuments);}
-        else {
-            return context.getString(R.string.category_shops); }
-
+            return context.getString(R.string.category_restaurants);
+        } else if (position == 1) {
+            return context.getString(R.string.category_hotels);
+        } else if (position == 2) {
+            return context.getString(R.string.category_monuments);
+        } else {
+            return context.getString(R.string.category_shops);
+        }
     }
 }

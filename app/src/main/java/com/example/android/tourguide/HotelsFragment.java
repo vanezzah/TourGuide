@@ -1,5 +1,6 @@
 package com.example.android.tourguide;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -16,13 +17,10 @@ import java.util.List;
 
 public class HotelsFragment extends Fragment {
 
-    public static final String ARG_PAGE = "ARG_PAGE";
-
+    public static final String ARG_PAGE = tourguide.getAppContext().getString(R.string.argname);
 
     public HotelsFragment() {
-
     }
-
 
     public static HotelsFragment newInstance(int page) {
         Bundle args = new Bundle();
@@ -38,31 +36,19 @@ public class HotelsFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.location_list, container, false);
 
-
         // Create a list of words
         List<Location> locations = new ArrayList<Location>();
-        locations.add(new Location("Four Seasons Rome", "Via Corona 1", R.drawable.hotel1));
-        locations.add(new Location("Marriott Rome", "Via Grande 33", R.drawable.hotel2));
-        locations.add(new Location("Iberostar Rome", "Via de Italia 4", R.drawable.hotel3));
-        locations.add(new Location("Holiday Inn Rome", "Colosseo 1", R.drawable.hotel4));
+        locations.add(new Location(getString(R.string.hotel1), getString(R.string.hotel1ad), R.drawable.hotel1));
+        locations.add(new Location(getString(R.string.hotel2), getString(R.string.hotel2ad), R.drawable.hotel2));
+        locations.add(new Location(getString(R.string.hotel3), getString(R.string.hotel3ad), R.drawable.hotel3));
+        locations.add(new Location(getString(R.string.hotel4), getString(R.string.hotel4ad), R.drawable.hotel4));
 
-
-        // Create an {@link WordAdapter}, whose data source is a list of {@link Word}s. The
-        // adapter knows how to create list items for each item in the list.
         LocationAdapter adapter = new LocationAdapter(getActivity(), locations);
 
-        // Find the {@link ListView} object in the view hierarchy of the {@link Activity}.
-        // There should be a {@link ListView} with the view ID called list, which is declared in the
-        // word_listyout file.
         ListView listView = (ListView) rootView.findViewById(R.id.list);
 
-        // Make the {@link ListView} use the {@link WordAdapter} we created above, so that the
-        // {@link ListView} will display list items for each {@link Word} in the list.
         listView.setAdapter(adapter);
 
         return rootView;
     }
-
 }
-
-
